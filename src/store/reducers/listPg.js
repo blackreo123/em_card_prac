@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const slice = createSlice({
     name : 'list',
     initialState : {
-        em_list : []
-        
+        em_list : [],
+        searchName : ''
         
 
     },
@@ -12,13 +12,17 @@ export const slice = createSlice({
         //메인화면 리스트
         setEm_list: (state, action) => {
             state.em_list = action.payload;
+        },
+        setSearchName: (state, action) => {
+            state.searchName = action.payload;
         }
     }
     
 });
 
 export const {
-    setEm_list
+    setEm_list,
+    setSearchName
     
 } = slice.actions;
 

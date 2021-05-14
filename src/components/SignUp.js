@@ -1,58 +1,29 @@
-import '../css/signUp.css';
+import { Button } from 'bootstrap';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import request from '../functions/request';
+import { signActions } from '../store/reducers/signPg';
+import Format from './Format';
+
+
+
 
 export default function SignUp() {
+    const { 
+        dplist      
+    } = useSelector((state) => state.signUp);
+    const dispatch = useDispatch();
+
+
+    useEffect(async()=>{
+        //部署リストを取得する
+        const dplist = await request('http://localhost:3001/getDpList',{what : 'null'});
+        dispatch(signActions.setDplist(['選択してください',...dplist.map((item)=>item)]));
+    },[])
+
     return (
         <>
-            <center>
-                <h1>社員カード登録</h1>
-            </center>
-
-            <div className='signUp-container'>
-                <div className='item item1'>사진 넣을 장소</div>
-                <div className='item item2'>
-                    <div className='item2-1'>入社番号</div><div className='item2-2'><input type='text'></input></div>
-                </div>
-                <div className='item item3'>
-                <div className='item3-1'>入社日</div><div className='item3-2'><input type='date'></input></div>
-                </div>
-                <div className='item'>4</div>
-                <div className='item'>5</div>
-                <div className='item'>6</div>
-                <div className='item'>7</div>
-                <div className='item'>8</div>
-                <div className='item'>9</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-                <div className='item'>10</div>
-
-            </div>
+           <Format></Format> 
         </>
     )
 }
