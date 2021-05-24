@@ -1,5 +1,14 @@
 export default function(props){
+    
     return(
-        <input type='text' onChange={props.onChange} className={props.className}></input>
+        <>
+        
+         <input type='text' key={props.em} 
+                            onChange={props.onChange}
+                            className={props.className} 
+                            defaultValue={props.em} ></input>
+        
+        
+        </>
     )
 }

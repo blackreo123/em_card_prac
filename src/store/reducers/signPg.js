@@ -37,7 +37,10 @@ export const slice = createSlice({
         kinkyu_num : '',
         kinkyu_name : '',
         s_un_name : '',
-        s_dp_name : ''
+        s_dp_name : '',
+        selectedEm : '',
+        val : '',
+        uval: ''
     },
     reducers : {
         
@@ -174,6 +177,17 @@ export const slice = createSlice({
         setKinkyu_name : (state,action) => {
             state.kinkyu_name = action.payload
         },
+        
+        //選択した人
+        setSelectedEm : (state,action) => {
+            state.selectedEm = action.payload
+        },
+        setVal : (state,action) => {
+            state.val = action.payload
+        },
+        setUval : (state,action) => {
+            state.uval = action.payload
+        },
 }
     
 });
@@ -213,7 +227,9 @@ export const {
     setKinkyu_name,
     setKinkyu_num,
     setS_dp_name,
-    setS_un_name
+    setS_un_name,
+    setVal,
+    setUval
 
     
 } = slice.actions;

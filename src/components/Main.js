@@ -7,8 +7,11 @@ import SearchBar from "./SearchBar";
 import { signActions } from "../store/reducers/signPg";
 
 
+
 export default function Main() {
-    
+    const {
+        em_list, searchName
+    } = useSelector((state) => state.list);
     const dispatch = useDispatch();
 
     useEffect(async()=>{
@@ -23,8 +26,10 @@ export default function Main() {
     },[])
     return (
         <>
+        
         <SearchBar></SearchBar>
         <ListTable></ListTable>
+        
         </>
     )
 }
